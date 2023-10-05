@@ -5,6 +5,7 @@ import CartContext from '../../context/CartContext'
 import EmptyCartView from '../EmptyCartView'
 
 import './index.css'
+import CartSummary from '../CartSummary'
 
 const Cart = () => (
   <CartContext.Consumer>
@@ -36,6 +37,7 @@ const Cart = () => (
                 </div>
                 <CartListView />
                 {/* TODO: Add your code for Cart Summary here */}
+                <CartSummary />
               </div>
             )}
           </div>

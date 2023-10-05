@@ -1,1 +1,22 @@
-/* Write your CSS here */
+.cart-summary-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.total-heading {
+}
+.total-span {
+  color: #616e7c;
+}
+.span {
+  color: #616e7c;
+}
+.check-out-btn {
+  background-color: #0b69ff;
+  color: #ffffff;
+  border-radius: 5px;
+  border-width: 0px;
+  width: 300px;
+  padding: 10px;
+}

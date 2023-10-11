@@ -39,6 +39,7 @@ const CartItem = props => (
             <div className="cart-quantity-container">
               <button
                 type="button"
+                data-testid="minus"
                 onClick={onDecrementCartItem}
                 className="quantity-controller-button"
               >
@@ -47,6 +48,7 @@ const CartItem = props => (
               <p className="cart-quantity">{quantity}</p>
               <button
                 type="button"
+                data-testid="plus"
                 onClick={onIncrementCartItem}
                 className="quantity-controller-button"
               >
@@ -58,6 +60,7 @@ const CartItem = props => (
               <button
                 className="remove-button"
                 type="button"
+                data-testid="remove"
                 onClick={onRemoveCartItem}
               >
                 Remove

@@ -29,19 +29,35 @@ class App extends Component {
   }
 
   incrementCartItemQuantity = id => {
-    const {cartList} = this.state
-    const updatedList = cartList.filter(each =>
-      each.id === id ? each.quantity + 1 : null,
-    )
-    this.setState({cartList: updatedList})
+    this.setState(prevState => ({
+      cartList: prevState.cartList.map(each => {
+        if (each.id === id) {
+          const updatedQuantity = each.quantity + 1
+          return {...each, quantity: updatedQuantity}
+        }
+        return each
+      }),
+    }))
   }
 
   decrementCartItemQuantity = id => {
-    const {cartList} = this.state
-    const updatedList = cartList.filter(each =>
-      each.id === id ? each.quantity - 1 : null,
-    )
-    this.setState({cartList: updatedList})
+    this.setState(prevState => ({
+      cartList: prevState.cartList.map(each => {
+        if (each.id === id && each.quantity > 1) {
+          if (each.quantity > 1) {
+            const updatedQuantity = each.quantity - 1
+            return {...each, quantity: updatedQuantity}
+          } else if (each.quantity === 0) {
+            this.setState({
+              cartList: prevState.cartList.filter(
+                eachItem => eachItem.id !== id,
+              ),
+            })
+          }
+        }
+        return each
+      }),
+    }))
   }
 
   addCartItem = product => {
